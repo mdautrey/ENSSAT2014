@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 @EnableAutoConfiguration
 @Configuration
-@ComponentScan
+@ComponentScan(basePackages = {"hello", "model"})
 public class Application {
 
     public static void main(String[] args) throws Throwable {
