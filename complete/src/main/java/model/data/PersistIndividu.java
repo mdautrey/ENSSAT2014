@@ -19,14 +19,14 @@ public class PersistIndividu implements InterfaceIndividu {
     @Autowired private DatabaseAccess databaseAccess;
 
     public void initPersistIndividu() {
-        databaseAccess.getJdbcTemplate().execute("drop table individus if exists");
-        databaseAccess.getJdbcTemplate().execute("create table individus(" +
+        this.databaseAccess.getJdbcTemplate().execute("drop table individus if exists");
+        this.databaseAccess.getJdbcTemplate().execute("create table individus(" +
                 "id serial, prenom varchar(255), nom varchar(255), civilite varchar(255))");
 
         String[] names = "Sam Sick Mister;Jeff Dean Mister;Jenny Blasch Madam; Jean-Pierre Robert Monsieur".split(";");
         for (String fullname : names) {
             String[] name = fullname.split(" ");
-            databaseAccess.getJdbcTemplate().update(
+            this.databaseAccess.getJdbcTemplate().update(
                     "INSERT INTO individus(prenom,nom, civilite) values(?,?,?)",
                     name[0], name[1], name[2]);
         }
