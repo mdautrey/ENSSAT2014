@@ -7,5 +7,4 @@ import model.Individu;
  */
 public interface InterfaceIndividu {
     public Individu getIndividu();
-    public void initPersistIndividu();
 }

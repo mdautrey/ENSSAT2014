@@ -1,6 +1,7 @@
 package model.data;
 
 import model.Individu;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
@@ -14,11 +15,11 @@ import java.util.List;
  */
 
 @Component
-public class PersistIndividu implements InterfaceIndividu {
+public class PersistIndividu implements InterfaceIndividu, InitializingBean {
 
     @Autowired private DatabaseAccess databaseAccess;
 
-    public void initPersistIndividu() {
+    @Override public void afterPropertiesSet() throws Exception{
         this.databaseAccess.getJdbcTemplate().execute("drop table individus if exists");
         this.databaseAccess.getJdbcTemplate().execute("create table individus(" +
                 "id serial, prenom varchar(255), nom varchar(255), civilite varchar(255))");
@@ -44,5 +45,7 @@ public class PersistIndividu implements InterfaceIndividu {
                 });
         return results.get(1);
     }
+
+
 
 }
