@@ -20,14 +20,14 @@ public class GreetingController  {
     @Autowired private InterfaceIndividu interfaceIndividu;
 
     @RequestMapping(value="/addindividu", method= RequestMethod.GET)
-    public String individuForm(Model model) {
+    public String addIndividu(Model model) {
         model.addAttribute("individu", new Individu());
         return "addindividu";
     }
 
 
     @RequestMapping(value="/addindividu", method=RequestMethod.POST)
-    public String greetingSubmit(@ModelAttribute Individu individu, Model model) {
+    public String confirmIndividu(@ModelAttribute Individu individu, Model model) {
         model.addAttribute("individu", individu);
         return "confirmindividu";
     }
