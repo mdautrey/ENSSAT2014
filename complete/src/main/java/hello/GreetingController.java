@@ -5,7 +5,6 @@ package hello;
  */
 
 import model.data.InterfaceIndividu;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class GreetingController  implements InitializingBean {
+public class GreetingController  {
 
     @Autowired private InterfaceIndividu interfaceIndividu;
 
@@ -23,10 +22,5 @@ public class GreetingController  implements InitializingBean {
         model.addAttribute("name", name);
         model.addAttribute("individu", interfaceIndividu.getIndividu());
         return "greeting";
-    }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-
     }
 }
