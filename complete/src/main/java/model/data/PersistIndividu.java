@@ -20,6 +20,7 @@ public class PersistIndividu implements InterfaceIndividu, InitializingBean {
     @Autowired private DatabaseAccess databaseAccess;
 
     @Override public void afterPropertiesSet() throws Exception{
+        System.out.println("code d initialisation");
         this.databaseAccess.getJdbcTemplate().execute("drop table individus if exists");
         this.databaseAccess.getJdbcTemplate().execute("create table individus(" +
                 "id serial, prenom varchar(255), nom varchar(255), civilite varchar(255))");

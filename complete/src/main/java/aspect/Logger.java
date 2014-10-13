@@ -10,7 +10,8 @@ import org.aspectj.lang.annotation.Aspect;
 public class Logger {
     @After(value = "execution(* model.data.InterfaceIndividu.getIndividu(..))")
     public void afterSelect() throws Exception {
-        throw new Exception("test aspect pointcut");
+        //throw new Exception("test aspect pointcut");
+        System.out.println("point cut");
 
     }
 }

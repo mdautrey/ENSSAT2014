@@ -10,7 +10,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 @EnableAspectJAutoProxy
 public class MvcConfig extends WebMvcConfigurerAdapter {
-    @Bean
+
+     @Bean
     public Logger logger() {
         return new Logger();
     }
@@ -18,6 +19,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/home").setViewName("home");
+        registry.addViewController("/index").setViewName("index");
         registry.addViewController("/").setViewName("home");
         registry.addViewController("/hello").setViewName("hello");
         registry.addViewController("/login").setViewName("login");
